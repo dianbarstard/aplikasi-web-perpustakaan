@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,12 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('contoh', function (){
-    return view('contoh');
-});
+Route::get('/beranda', [BukuController::class, 'home']);
+Route::get('/buku', [BukuController::class, 'buku']);
+Route::get('/kontak', [BukuController::class, 'kontak']);
 
-Route::get('denna', function (){
-    return "halo, nama saya Denna";
-});
 
-Route::get('buku', [BukuController::class, 'index']);
+

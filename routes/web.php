@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\RakController;
+
 
 
 /*
@@ -20,8 +24,18 @@ Route::get('/', function () {
 });
 
 Route::get('/beranda', [BukuController::class, 'home']);
-Route::get('/buku', [BukuController::class, 'buku']);
-Route::get('/kontak', [BukuController::class, 'kontak']);
+Route::get('/buku', [BukuController::class, 'index']);
+Route::get('/create', [BukuController::class, 'create']);
+Route::post('/create/post', [BukuController::class, 'post']);
+Route::get('/edit/{id}', [BukuController::class, 'edit']);
+Route::put('/update/{id}', [BukuController::class, 'update']);
+Route::get('/delete/{id}', [BukuController::class, 'delete']);
+
+Route::get('/login', [AuthController::class, 'login']);
+Route::post('/proses_login', [AuthController::class, 'prosesLogin']);
+
+Route::get('/anggota', [AnggotaController::class, 'index']);
+Route::get('/rak', [RakController::class, 'index']);
 
 
 

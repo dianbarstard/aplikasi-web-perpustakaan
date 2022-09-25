@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Buku extends Model
 {
     use HasFactory;
+
+    protected $table='books';
+    protected $fillable = [
+        'kode_buku',
+        'judul',
+        'penerbit',
+        'penulis',
+        'tahun',
+    ];
+
+    public function rak () {
+        return $this->belongsTo(Rak::class);
+    }
 }
